@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrílico & Luz | Fachadas Comerciais de Alto Padrão</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d1a35;
+            --accent: #d4af37;
+            --light: #f8f5ee;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--light);
+            color: #333;
+        }
+        
+        .luxury-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(13, 26, 53, 0.9) 0%, rgba(13, 26, 53, 0.7) 100%), 
+                        url('imagem/imagem 0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 70%, rgba(13, 26, 53, 0.95) 100%);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .step-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 26, 53, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        .floating-button {
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .info-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .gold-text {
+            background: linear-gradient(90deg, #d4af37, #f9e076, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+        
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+            z-index: 10;
+        }
+        
+        .material-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .material-card:hover .material-icon {
+            transform: rotateY(180deg);
+        }
+        
+        /* Responsive image container */
+        .aspect-container {
+            position: relative;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .aspect-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Material category styling */
+        .material-category {
+            background: linear-gradient(135deg, rgba(13, 26, 53, 0.03), rgba(212, 175, 55, 0.03));
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .material-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .material-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+        
+        .material-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        /* New wall type selector */
+        .wall-type-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .wall-type {
+            padding: 8px 12px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .wall-type.selected {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Header/Navigation -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                        <i class="fas fa-lightbulb text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold luxury-font">Acrílico & Luz</h1>
+                </div>
+                
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#servicos" class="nav-link hover:text-accent transition duration-300">Serviços</a></li>
+                        <li><a href="#materiais" class="nav-link hover:text-accent transition duration-300">Materiais</a></li>
+                        <li><a href="#como-solicitar" class="nav-link hover:text-accent transition duration-300">Como Solicitar</a></li>
+                        <li><a href="#portfolio" class="nav-link hover:text-accent transition duration-300">Portfólio</a></li>
+                        <li><a href="#contato" class="nav-link hover:text-accent transition duration-300">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 py-4" id="mobile-menu">
+                <ul class="space-y-3">
+                    <li><a href="#servicos" class="block hover:text-accent transition duration-300 py-2 px-4">Serviços</a></li>
+                    <li><a href="#materiais" class="block hover:text-accent transition duration-300 py-2 px-4">Materiais</a></li>
+                    <li><a href="#como-solicitar" class="block hover:text-accent transition duration-300 py-2 px-4">Como Solicitar</a></li>
+                    <li><a href="#portfolio" class="block hover:text-accent transition duration-300 py-2 px-4">Portfólio</a></li>
+                    <li><a href="#contato" class="block hover:text-accent transition duration-300 py-2 px-4">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20 md:py-40 relative z-10">
+        <div class="container mx-auto px-4 text-center relative z-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 luxury-font">Fachadas Comerciais <br><span class="gold-text">de Alto Padrão</span></h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Transforme a identidade visual do seu negócio com soluções personalizadas em materiais premium e iluminação de excelência</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/62999170253" target="_blank" class="bg-accent hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 inline-block transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i> Solicite um Orçamento
+                </a>
+                <a href="#portfolio" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 inline-block transform hover:scale-105">
+                    <i class="fas fa-images mr-2"></i> Ver Portfólio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 luxury-font section-title">Nossos Serviços</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Soluções premium para destacar sua marca e valorizar seu espaço comercial com materiais de alta qualidade e design exclusivo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden p-8">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-lightbulb text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">Iluminação LED Premium</h3>
+                    <p class="text-gray-600 text-center">Projetos de iluminação LED de alto padrão para fachadas comerciais, utilizando tecnologia de ponta para destacar e valorizar sua marca com eficiência energética.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden p-8">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-building text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">Fachadas Personalizadas</h3>
+                    <p class="text-gray-600 text-center">Criação de fachadas comerciais exclusivas, combinando materiais nobres como acrílico, latão e inox com iluminação integrada para um visual sofisticado e impactante.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden p-8">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-pencil-ruler text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">Projetos Exclusivos</h3>
+                    <p class="text-gray-600 text-center">Desenvolvimento de projetos arquitetônicos personalizados para fachadas comerciais, com design inovador e soluções que harmonizam estética e funcionalidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materiais" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 luxury-font section-title">Materiais Premium</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Utilizamos apenas materiais de alta qualidade para garantir durabilidade, beleza e sofisticação em todas as nossas fachadas comerciais.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+                <!-- Material 1 -->
+                <div class="material-card bg-white rounded-xl overflow-hidden p-6 text-center">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-gem text-accent text-3xl material-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Acrílico de Alta Transparência</h3>
+                    <p class="text-gray-600">Material nobre com excelente transparência e resistência, ideal para fachadas luminosas e sofisticadas.</p>
+                </div>
+                
+                <!-- Material 2 -->
+                <div class="material-card bg-white rounded-xl overflow-hidden p-6 text-center">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-crown text-accent text-3xl material-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Latão Dourado Escovado</h3>
+                    <p class="text-gray-600">Material exclusivo com acabamento premium, proporcionando um visual luxuoso e elegante para sua fachada.</p>
+                </div>
+                
+                <!-- Material 3 -->
+                <div class="material-card bg-white rounded-xl overflow-hidden p-6 text-center">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-shield-alt text-accent text-3xl material-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Inox Escovado</h3>
+                    <p class="text-gray-600">Material de alta resistência e durabilidade, com acabamento sofisticado e contemporâneo.</p>
+                </div>
+                
+                <!-- Material 4 -->
+                <div class="material-card bg-white rounded-xl overflow-hidden p-6 text-center">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-bolt text-accent text-3xl material-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">LED de Alta Performance</h3>
+                    <p class="text-gray-600">Iluminação premium com tecnologia de ponta, garantindo brilho uniforme e máxima eficiência energética.</p>
+                </div>
+            </div>
+            
+            <!-- Categorias de Materiais -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Letreiros sem Iluminação -->
+                <div class="material-category bg-white rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-accent rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Letreiros sem Iluminação</h3>
+                    </div>
+                    
+                    <ul class="material-list space-y-4">
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">Acrílico com pintura invertida efeito 3D</h4>
+                            <p class="text-gray-600">Design moderno com efeito tridimensional que chama atenção.</p>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">Letreiros em MDF e PVC expandido</h4>
+                            <p class="text-gray-600">Materiais versáteis para diversas aplicações e estilos.</p>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">Letras em aço</h4>
+                            <p class="text-gray-600">Disponível em galvanizado, inox polido ou escovado e latão.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Letreiros Iluminados -->
+                <div class="material-category bg-white rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-accent rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                            <i class="fas fa-sun text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Letreiros Iluminados (front light ou back light)</h3>
+                    </div>
+                    
+                    <ul class="material-list space-y-4">
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">Impressão 3D em ABS ou PETG</h4>
+                            <p class="text-gray-600">Tecnologia de ponta para formas complexas e detalhadas.</p>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">ACM (Aluminum Composite Material)</h4>
+                            <p class="text-gray-600">Material leve e resistente, ideal para fachadas modernas.</p>
+                        </li>
+                        <li>
+                            <h4 class="text-lg font-bold text-primary mb-2">Letras em aço</h4>
+                            <p class="text-gray-600">Disponível em galvanizado, inox polido ou escovado e latão.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="como-solicitar" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 luxury-font section-title">Como Solicitar um Orçamento</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Processo simplificado para garantir excelência desde o primeiro contato até a entrega final.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+                <!-- Step 1 -->
+                <div class="step-card bg-gray-50 rounded-xl shadow-sm p-6 text-center">
+                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 mx-auto text-xl font-bold">1</div>
+                    <h3 class="text-lg font-bold text-primary mb-3">Envie seu Logo em Vetor</h3>
+                    <p class="text-gray-600 mb-2">Aceitamos arquivos Ai ou Corel Draw</p>
+                    <p class="text-sm text-gray-500 italic">OBS: não realizamos pedidos sem o devido arquivo em vetor</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card bg-gray-50 rounded-xl shadow-sm p-6 text-center">
+                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 mx-auto text-xl font-bold">2</div>
+                    <h3 class="text-lg font-bold text-primary mb-3">Meça a Altura e Largura</h3>
+                    <p class="text-gray-600 mb-2">Assim podemos determinar o tamanho ideal para aplicação da sua letra caixa</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card bg-gray-50 rounded-xl shadow-sm p-6 text-center">
+                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 mx-auto text-xl font-bold">3</div>
+                    <h3 class="text-lg font-bold text-primary mb-3">Escolha o Material</h3>
+                    <p class="text-gray-600 mb-2">Acrílico, latão dourado escovado, inox, galvanizado dentre outros.</p>
+                    <p class="text-sm text-gray-500 italic">OBS: especificar com clareza qual o material desejado, aço escovado não é latão dourado</p>
+                </div>
+                
+                <!-- Step 4 - New wall type information -->
+                <div class="step-card bg-gray-50 rounded-xl shadow-sm p-6 text-center">
+                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 mx-auto text-xl font-bold">4</div>
+                    <h3 class="text-lg font-bold text-primary mb-3">Tipo de Parede</h3>
+                    <p class="text-gray-600 mb-2">Informe o material da superfície onde será instalado:</p>
+                    <div class="wall-type-selector">
+                        <div class="wall-type" data-wall="concreto">Concreto</div>
+                        <div class="wall-type" data-wall="gesso">Gesso</div>
+                        <div class="wall-type" data-wall="drywall">Dry Wall</div>
+                        <div class="wall-type" data-wall="ripado">Painel Ripado</div>
+                        <div class="wall-type" data-wall="liso">Liso</div>
+                        <div class="wall-type" data-wall="texturizado">Texturizado</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Prazo -->
+                <div class="info-card bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-primary mb-3 flex items-center">
+                        <i class="fas fa-clock text-accent mr-2"></i> Prazo de Fabricação
+                    </h3>
+                    <p class="text-gray-600 mb-2">20 dias úteis após aprovação do layout</p>
+                    <p class="text-sm text-gray-500 italic">OBS: o prazo poderá variar dependendo da disponibilidade de matéria-prima, dificuldade de acesso à estrutura in loco entre outros</p>
+                </div>
+                
+                <!-- Pagamento -->
+                <div class="info-card bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-primary mb-3 flex items-center">
+                        <i class="fas fa-credit-card text-accent mr-2"></i> Formas de Pagamento
+                    </h3>
+                    <p class="text-gray-600 mb-2">PIX, boleto e cartão de crédito (com juros)</p>
+                    <p class="text-sm text-gray-500 italic">OBS: entrada de 50%, 25% mediante comprovação de itens prontos por meio de fotos e vídeos, 25% antes do envio ou instalação</p>
+                </div>
+                
+                <!-- Nota Fiscal -->
+                <div class="info-card bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-primary mb-3 flex items-center">
+                        <i class="fas fa-file-invoice-dollar text-accent mr-2"></i> Nota Fiscal
+                    </h3>
+                    <p class="text-gray-600 mb-2">NF Serviço (16.5% de impostos serão adicionadas)</p>
+                    <p class="text-sm text-gray-500 italic">OBS: valores não incluem nota fiscal, adicionar a porcentagem ao valor enviado</p>
+                </div>
+                
+                <!-- Frete -->
+                <div class="info-card bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-primary mb-3 flex items-center">
+                        <i class="fas fa-truck text-accent mr-2"></i> Valor do Frete
+                    </h3>
+                    <p class="text-gray-600 mb-2">O valor do frete seguirá a tabela dos Correios para Sedex ou PAC ou da transportadora Loggi, considerando distância, peso e volume do pedido.</p>
+                    <p class="text-sm text-gray-500 italic">OBS: FOB por conta do cliente, valor deverá ser pago adiantadamente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 luxury-font section-title">Portfólio de Projetos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Alguns dos nossos trabalhos que transformaram espaços comerciais em verdadeiras obras de arte.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item rounded-xl relative">
+                    <div class="featured-badge">Destaque</div>
+                    <div class="aspect-container">
+                        <img src="imagem/imagem1.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Projeto Comercial Premium</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl relative">
+                    <div class="aspect-container">
+                        <img src="imagem/imagem 2.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Letreiro em Acrílico</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl relative">
+                    <div class="aspect-container">
+                        <img src="imagem/imagem 3.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Design em Inox Escovado</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl relative">
+                    <div class="aspect-container">
+                        <img src="imagem/imagem 4.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Iluminação LED Premium</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl relative">
+                    <div class="aspect-container">
+                        <img src="imagem/imagem 5.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Fachada em Latão Dourado</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl relative">
+                    <div class="aspect-container">
+                        <img src="imagem/imagem 6.jpg" alt="Fachada comercial">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 class="text-white text-lg font-bold">Projeto Corporativo</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Section: Placas de Sinalização -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-8 luxury-font text-center">Placas de Sinalização</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="gallery-item rounded-xl relative">
+                        <div class="aspect-container">
+                            <img src="imagem/sinalizacao1.jpg" alt="Placa de sinalização">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <h3 class="text-white text-lg font-bold">Sinalização Corporativa</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item rounded-xl relative">
+                        <div class="aspect-container">
+                            <img src="imagem/sinalizacao2.jpg" alt="Placa de sinalização">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <h3 class="text-white text-lg font-bold">Sinalização de Direção</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item rounded-xl relative">
+                        <div class="aspect-container">
+                            <img src="imagem/sinalizacao3.jpg" alt="Placa de sinalização">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <h3 class="text-white text-lg font-bold">Sinalização Interna</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item rounded-xl relative">
+                        <div class="aspect-container">
+                            <img src="imagem/sinalizacao4.jpg" alt="Placa de sinalização">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <h3 class="text-white text-lg font-bold">Sinalização Externa</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/acrilicoluzesinalizacao/" target="_blank" class="inline-block bg-primary hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="fab fa-instagram mr-2"></i> Veja Mais no Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 md:py-24 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 luxury-font section-title">Entre em Contato</h2>
+                <p class="max-w-2xl mx-auto">Estamos prontos para transformar a fachada do seu estabelecimento em uma obra de arte comercial.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 luxury-font">Informações de Contato</h3>
+                    
+                    <!-- Contato - Telefone -->
+                    <div class="flex items-start mb-6">
+                        <div class="bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Telefone</h4>
+                            <p>(62) 99917-0253</p>
+                            <a href="https://wa.me/62999170253" target="_blank" class="text-accent underline hover:text-yellow-600 transition">
+                                Fale comigo no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Horário de Atendimento -->
+                    <div class="flex items-start">
+                        <div class="bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Horário de Atendimento</h4>
+                            <p>Segunda a Sexta: 08h às 18h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-lg mb-4">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.instagram.com/acrilicoluzesinalizacao/" target="_blank" class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram text-white text-xl"></i>
+                            </a>
+                            <a href="https://wa.me/62999170253" target="_blank" class="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-whatsapp text-white text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="contact-card rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 luxury-font">Solicite um Orçamento</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Nome</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Seu nome completo">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="seu@email.com">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-medium mb-1">Telefone</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="(00) 00000-0000">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Descreva seu projeto..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-accent hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/62999170253" target="_blank"
+           class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg floating-button hover:bg-green-600 transition duration-300 z-50">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                            <i class="fas fa-lightbulb text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold luxury-font">Acrílico & Luz</h3>
+                    </div>
+                    <p class="text-gray-400">Especialistas em fachadas comerciais de alto padrão, combinando materiais premium e iluminação LED para valorizar sua marca.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#servicos" class="text-gray-400 hover:text-accent transition duration-300">Serviços</a></li>
+                        <li><a href="#materiais" class="text-gray-400 hover:text-accent transition duration-300">Materiais</a></li>
+                        <li><a href="#como-solicitar" class="text-gray-400 hover:text-accent transition duration-300">Como Solicitar</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-accent transition duration-300">Portfólio</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-accent transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Serviços</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#servicos" class="text-gray-400 hover:text-accent transition duration-300">Iluminação LED</a></li>
+                        <li><a href="#servicos" class="text-gray-400 hover:text-accent transition duration-300">Fachadas Personalizadas</a></li>
+                        <li><a href="#servicos" class="text-gray-400 hover:text-accent transition duration-300">Projetos Exclusivos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Certificações</h3>
+                    <div class="flex space-x-3">
+                        <div class="bg-gray-800 rounded-lg p-3">
+                            <i class="fas fa-medal text-accent text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-3">
+                            <i class="fas fa-award text-accent text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3">Empresa certificada e com padrão de qualidade ISO 9001</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Acrílico & Luz. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.querySelector('#mobile-menu-button i');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (menuIcon.classList.contains('fa-bars')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                contactForm.reset();
+            });
+        }
+        
+        // Wall type selector functionality
+        const wallTypes = document.querySelectorAll('.wall-type');
+        wallTypes.forEach(type => {
+            type.addEventListener('click', function() {
+                // Remove selected class from all
+                wallTypes.forEach(t => t.classList.remove('selected'));
+                // Add selected class to clicked
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
